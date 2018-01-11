@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: uaccommonmng
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: uaccommonmng
+    spec:
+      containers:
+      - name: uaccommonmng
+        image: wcr.io/zteuac/uaccommonmng:$TAG
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 4Gi
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: wrelease
