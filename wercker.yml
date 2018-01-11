@@ -19,12 +19,13 @@ build:
     - script: 
       name: build
       code: |
-        mkdir -p /usr/local/tomcat/webapps/uaccommonmng
+        rm -fr /usr/local/tomcat/webapps/*
+        mkdir -p /usr/local/tomcat/webapps/ROOT
         ls
         echo 'pwd1'
         pwd
-        mv ./uaccommonmng.war /usr/local/tomcat/webapps/uaccommonmng/
-        cd /usr/local/tomcat/webapps/uaccommonmng 
+        mv ./uaccommonmng.war /usr/local/tomcat/webapps/ROOT/
+        cd /usr/local/tomcat/webapps/ROOT 
         du -sh ./*
         jar -xvf uaccommonmng.war
         rm -fr uaccommonmng.war
